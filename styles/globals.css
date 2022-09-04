@@ -1,9 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+
+  .point-decorator::before {
+    position: absolute;
+    content: '';
+    left: -20px;
+    top: 50%;
+    background-color: theme("backgroundColor.decorator");
+    border-radius: 50%;
+    width: .75rem;
+    height: .75rem;
+  }
+
+  .line-decorator::before {
+    position: absolute;
+    content: '';
+    left: -15px;
+    top: 0;
+    background-color: theme("backgroundColor.decorator");
+    border-radius: theme("borderRadius.md");
+    width: 3px;
+    height: 100%;
+  }
+
+  ;
+
+  .decorator.point {
+    width: 10px;
+    height: 10px
+  }
+
+  /* ... */
+}
+
 html,
-body {
+body,
+*,
+*::after,
+*::before {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
@@ -15,10 +67,16 @@ a {
   box-sizing: border-box;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;

@@ -1,0 +1,8 @@
+# Artifacts
+build
+coverage
+
+**/.git
+**/.svn
+**/.hg
+**/node_modules
