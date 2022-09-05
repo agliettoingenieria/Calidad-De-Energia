@@ -9,10 +9,10 @@ export const NavBar = () => {
       <nav
         className={`${
           isOpen ? 'fixed' : 'hidden'
-        } flex flex-col w-screen left-0 top-0 items-center 
+        } flex flex-col w-screen left-0 top-0 items-center justify-self-center
 			${
         isOpen ? 'before:absolute' : 'before:hidden'
-      } before:w-full before:h-screen before:bg-zinc-900 before:opacity-80 z-10
+      } before:w-full before:h-screen before:bg-neutral-900 before:opacity-80 z-10
 			md:before:hidden md:sticky md:top-20 md:p-4 md:h-fit md:w-fit md:inline-block
 			`}
       >
