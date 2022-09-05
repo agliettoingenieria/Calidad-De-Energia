@@ -66,7 +66,7 @@ export default function Home() {
         'md:grid md:grid-cols-[minmax(0,_1fr)_minmax(0,_2fr)] pt-12 px-16 gap-8 relative top-20'
       }
     >
-      <NavBar currentArticleVisile={entry?.target.getAttribute('id')} />
+      <NavBar />
       <main className="flex flex-col gap-12 pb-32 md:pb-20">
         {['ceop', 'protecciones'].map((elId, idx) => (
           <article
