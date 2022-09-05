@@ -2,6 +2,17 @@ import { useState } from 'react';
 import { ListItem } from './Header';
 import { Link } from './Link';
 
+const Links = [
+  {
+    href: '#ceop',
+    value: 'CEOP',
+  },
+  {
+    href: '#protecciones',
+    value: 'Protecciones',
+  },
+];
+
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -18,25 +29,18 @@ export const NavBar = () => {
       >
         <aside className="relative top-32 w-9/12 md:w-fit md:top-0">
           <ol className={`flex flex-col gap-4`}>
-            <ListItem className="w-full">
-              <Link
-                activeClassName="bg-blue-600 md:hover:bg-blue-800"
-                classNames="py-1 px-2 md:hover:bg-blue-900 rounded-md"
-                href="#ceop"
-              >
-                CEOP
-                <div className="bg-indigo-700"></div>
-              </Link>
-            </ListItem>
-            <ListItem className="w-full">
-              <Link
-                activeClassName="bg-blue-600 md:hover:bg-blue-800"
-                classNames="py-1 px-2 md:hover:bg-blue-900 rounded-md"
-                href="#protecciones"
-              >
-                Protecciones
-              </Link>
-            </ListItem>
+            {Links.map(({ value, href }, idx) => (
+              <ListItem className="w-full">
+                <Link
+                  activeClassName="bg-blue-600 md:hover:bg-blue-800"
+                  classNames="py-1 px-2 md:hover:bg-blue-900 rounded-md"
+                  href={href}
+                >
+                  {value}
+                  <div className="bg-indigo-700"></div>
+                </Link>
+              </ListItem>
+            ))}
           </ol>
         </aside>
       </nav>
