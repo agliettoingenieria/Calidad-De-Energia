@@ -30,7 +30,7 @@ export const NavBar = () => {
         <aside className="relative top-32 w-9/12 md:w-fit md:top-0">
           <ol className={`flex flex-col gap-4`}>
             {Links.map(({ value, href }, idx) => (
-              <ListItem className="w-full">
+              <ListItem key={`${value}_to_${href}`} className="w-full">
                 <Link
                   activeClassName="bg-blue-600 md:hover:bg-blue-800"
                   classNames="py-1 px-2 md:hover:bg-blue-900 rounded-md"

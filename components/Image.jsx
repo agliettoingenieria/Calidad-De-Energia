@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import NextImage from 'next/image';
 
-const loadImageSrc = (e) => {
-  console.log(e);
-};
-
 export const Image = ({
   width = 100,
   height = 100,

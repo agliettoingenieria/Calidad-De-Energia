@@ -18,8 +18,6 @@ const useIntersectionObserver = (
     setEntry(entry);
   };
 
-  // console.log('elements', elementsRefs);
-
   useEffect(() => {
     const node = elementsRefs?.current?.[0]; // DOM Ref
     const hasIOSupport = !!window.IntersectionObserver;
@@ -53,7 +51,6 @@ export default function Home() {
     if (!entry) return;
     if (!isVisible) return;
     const elementId = entry?.target.getAttribute('id');
-    console.log(elementId);
     router.replace(`#${elementId}`, undefined, {
       shallow: true,
       scroll: false,
