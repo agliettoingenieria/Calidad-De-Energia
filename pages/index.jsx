@@ -108,8 +108,8 @@ export default function Home() {
   const articlesRefs = useRef([]);
   const router = useRouter();
   const entry = useIntersectionObserver(articlesRefs, {
-    threshold: '.5',
-    rootMargin: '45%',
+    threshold: '.8',
+    rootMargin: '15%',
   });
   const isVisible = !!entry?.isIntersecting;
 
@@ -120,11 +120,13 @@ export default function Home() {
       const elementId = entry?.target.getAttribute('id');
       console.log(elementId);
       router.replace(`#${elementId}`, undefined, {
-        shallow: true,
+        shallow: false,
         scroll: false,
       });
     }, 500);
-    return () => clearTimeout(t);
+    return () => {
+      clearTimeout(t);
+    };
   }, [entry]);
 
   return (
