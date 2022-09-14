@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
-import { useRouter } from 'next/router';
 import { NavBar } from '../components/NavBar';
 import { Subtitle, Title } from '../components/Content/Title';
 import Wrapper from '../components/wrapper/Main';
@@ -24,9 +23,9 @@ const ARTICLES = [
     ],
   },
   {
-    title: 'Protecciones',
+    title: 'Sinetamer',
     text: null,
-    image: null,
+    image: '/images/logo/avif/test_2.avif',
     sections: [
       {
         title: 'Supresor de transitorios y filtra AF Sinetamer',
@@ -44,7 +43,7 @@ const ARTICLES = [
   {
     title: 'AGLIETTO INGENIERA®',
     text: `Filtro de Súper Aislación (PDM).</br>4 Etapas de Filtrado (Aislación / N-G, Modo Común, Transitorios, Tuido hasta 100kHz).</br>Conexión Serie.</br>Origen Argentina (tecnología USA).`,
-    image: null,
+    image: '/images/logo/avif/test_2.avif',
     sections: [
       {
         title: 'USO',
@@ -56,13 +55,13 @@ const ARTICLES = [
   {
     title: 'SCHNEIDER ECOXPERT',
     text: 'Brindamos soluciones para eficiencia energética y calidad de energía con un equipo de expertos único en Latam.',
-    image: null,
+    image: '/images/logo/avif/test_2.avif',
     sections: null,
   },
   {
     title: 'LAS MARCAS LÍDERES EN SOLUCIONES DE CE',
     text: 'Desde baterías, UPS, filtro de flickr, filtros de línea, bobinas de impedancia, filtros de flicker, hasta filtros para desbalance y compensadores de estado sonido líderes a nivel mundial para brindar soluciones a TODOS los eventos de energía.',
-    image: null,
+    image: '/images/logo/avif/test_2.avif',
     sections: null,
   },
 ];
@@ -72,7 +71,6 @@ const removeAcents = (str) =>
 const LIST_OF_LINKS = ARTICLES.map((value) =>
   removeAcents(value['title'].replace(/ /gi, '-').replace('®', ''))
 );
-console.log(LIST_OF_LINKS);
 const useIntersectionObserver = (
   elementsRefs = [],
   { root = null, threshold = '0', rootMargin = '0%', freezeOnceVisible = false }
@@ -106,28 +104,11 @@ const useIntersectionObserver = (
 
 export default function Home() {
   const articlesRefs = useRef([]);
-  const router = useRouter();
   const entry = useIntersectionObserver(articlesRefs, {
     threshold: '.8',
     rootMargin: '15%',
   });
   const isVisible = !!entry?.isIntersecting;
-
-  useEffect(() => {
-    if (!entry) return;
-    if (!isVisible) return;
-    const t = setTimeout(() => {
-      const elementId = entry?.target.getAttribute('id');
-      console.log(elementId);
-      router.replace(`#${elementId}`, undefined, {
-        shallow: false,
-        scroll: false,
-      });
-    }, 500);
-    return () => {
-      clearTimeout(t);
-    };
-  }, [entry]);
 
   return (
     <Wrapper
@@ -135,7 +116,10 @@ export default function Home() {
         'md:grid md:grid-cols-[minmax(0,_1fr)_minmax(0,_2fr)] pt-12 px-16 gap-8 relative top-20'
       }
     >
-      <NavBar links={LIST_OF_LINKS} />
+      <NavBar
+        currentArticleId={entry?.target.getAttribute('id')}
+        links={LIST_OF_LINKS}
+      />
       <main className="flex flex-col gap-12 pb-32 md:pb-20">
         {ARTICLES.map((element, idx) => (
           <article

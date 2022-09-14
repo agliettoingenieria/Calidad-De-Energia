@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ListItem } from './Header';
 import { Link } from './Link';
 
-export const NavBar = ({ links = [] }) => {
+export const NavBar = ({ links = [], currentArticleId = 'ceop' }) => {
   const [isOpen, setIsOpen] = useState(false);
   if (links.length === 0) return <></>;
   return (
@@ -25,8 +25,11 @@ export const NavBar = ({ links = [] }) => {
                   activeClassName="bg-blue-600 md:hover:bg-blue-800"
                   classNames="py-1 px-2 md:hover:bg-blue-900 rounded-md"
                   href={'#' + anchor.toLowerCase()}
+                  isActive={
+                    '#' + anchor.toLowerCase() === '#' + currentArticleId
+                  }
                 >
-                  {anchor}
+                  {anchor.replace(/-/g, ' ')}
                   <div className="bg-indigo-700"></div>
                 </Link>
               </ListItem>

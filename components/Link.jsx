@@ -1,28 +1,25 @@
 import { useState, useEffect } from 'react';
 import NextLink from 'next/link';
-import { useRouter } from 'next/router';
 
 export const Link = ({
   children,
   classNames = '',
   activeClassName = '',
   href = '#',
+  c,
+  isActive = false,
   onClick = (e) => {},
 }) => {
-  const { asPath, pathname } = useRouter();
   const [className, setClassName] = useState(classNames);
-  const normalizedHref = href.startsWith('/') ? href : '/' + href;
+  const [linkIsActive, setLinkIsActive] = useState(isActive);
 
   useEffect(() => {
-    const newClassName =
-      pathname === normalizedHref || asPath === normalizedHref
-        ? `${classNames} ${activeClassName}`.trim()
-        : classNames;
-
-    if (newClassName !== className) {
-      setClassName(newClassName);
-    }
-  }, [asPath, pathname, href, classNames, activeClassName]);
+    const newClassName = isActive
+      ? `${classNames} ${activeClassName}`.trim()
+      : classNames;
+    setClassName(newClassName);
+    setLinkIsActive(isActive);
+  }, [isActive]);
 
   return (
     <NextLink href={href} passHref>

@@ -18,11 +18,7 @@ export const Header = () => {
       <ul className="flex justify-between items-center h-full px-4 gap-4">
         <ListItem className="w-fit">
           <Link href="/">
-            <Image
-              src="/images/logo/Logo_Aglietto.png"
-              width={'180'}
-              height={'80'}
-            />
+            <Image src="/images/logo/logo.jfif" width={'180'} height={'80'} />
           </Link>
         </ListItem>
         <li
@@ -42,7 +38,7 @@ export const Header = () => {
                 classNames="py-2 md:hover:bg-blue-800 rounded-md"
                 href="/"
               >
-                Hi
+                Secciones
               </Link>
             </ListItem>
             <ListItem className="w-9/12 text-center md:w-1/5">
@@ -51,7 +47,7 @@ export const Header = () => {
                 classNames="py-2 md:hover:bg-blue-800 rounded-md"
                 href="/#22"
               >
-                Hi
+                Benimalist
               </Link>
             </ListItem>
           </ul>
