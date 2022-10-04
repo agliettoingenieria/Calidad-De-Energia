@@ -10,7 +10,7 @@ const ARTICLES = [
   {
     title: 'CEOP',
     text: null,
-    image: '/images/logo/avif/test_2.avif',
+    image: '/images/IMG_7856.jfif',
     sections: [
       {
         title: '¿Qué es CEOP?',
@@ -25,13 +25,13 @@ const ARTICLES = [
   {
     title: 'Sinetamer',
     text: null,
-    image: '/images/logo/avif/test_2.avif',
+    image: '/images/IMG_7861.jfif',
     sections: [
       {
         title: 'Supresor de transitorios y filtra AF Sinetamer',
-        text: `Filtro de Atenuación de Frecuencia (FAF) con Supresor de Transitorios Incorporado (SST).</br>
-        Garantía Total por 25 años.</br>
-        Origen USA.</br>
+        text: `Filtro de Atenuación de Frecuencia (FAF) con Supresor de Transitorios Incorporado (SST).
+        Garantía Total por 25 años.
+        Origen USA.
         `,
       },
       {
@@ -42,8 +42,9 @@ const ARTICLES = [
   },
   {
     title: 'AGLIETTO INGENIERA®',
-    text: `Filtro de Súper Aislación (PDM).</br>4 Etapas de Filtrado (Aislación / N-G, Modo Común, Transitorios, Tuido hasta 100kHz).</br>Conexión Serie.</br>Origen Argentina (tecnología USA).`,
-    image: '/images/logo/avif/test_2.avif',
+    text: `Filtro de Súper Aislación (PDM).
+4 Etapas de Filtrado (Aislación / N-G, Modo Común, Transitorios, Tuido hasta 100kHz).Conexión Serie.Origen Argentina (tecnología USA).`,
+    image: '/images/IMG_7862.jfif',
     sections: [
       {
         title: 'USO',
@@ -55,13 +56,13 @@ const ARTICLES = [
   {
     title: 'SCHNEIDER ECOXPERT',
     text: 'Brindamos soluciones para eficiencia energética y calidad de energía con un equipo de expertos único en Latam.',
-    image: '/images/logo/avif/test_2.avif',
+    image: '/images/IMG_7867.jfif',
     sections: null,
   },
   {
     title: 'LAS MARCAS LÍDERES EN SOLUCIONES DE CE',
     text: 'Desde baterías, UPS, filtro de flickr, filtros de línea, bobinas de impedancia, filtros de flicker, hasta filtros para desbalance y compensadores de estado sonido líderes a nivel mundial para brindar soluciones a TODOS los eventos de energía.',
-    image: '/images/logo/avif/test_2.avif',
+    image: '/images/IMG_7868.jfif',
     sections: null,
   },
 ];
@@ -108,7 +109,6 @@ export default function Home() {
     threshold: '.8',
     rootMargin: '15%',
   });
-  const isVisible = !!entry?.isIntersecting;
 
   return (
     <Wrapper

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from './Link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 export const ListItem = ({ children, className }) => {
   return (
@@ -12,6 +13,7 @@ export const ListItem = ({ children, className }) => {
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <header className="fixed inset-0 max-h-20 h-20 bg-slate-900 z-40">
@@ -37,11 +39,12 @@ export const Header = () => {
                 activeClassName="bg-blue-600"
                 classNames="py-2 md:hover:bg-blue-800 rounded-md"
                 href="/"
+                isActive={router.pathname === '/'}
               >
-                Secciones
+                Inicio
               </Link>
             </ListItem>
-            <ListItem className="w-9/12 text-center md:w-1/5">
+            {/* <ListItem className="w-9/12 text-center md:w-1/5">
               <Link
                 activeClassName="bg-blue-600"
                 classNames="py-2 md:hover:bg-blue-800 rounded-md"
@@ -49,7 +52,7 @@ export const Header = () => {
               >
                 Benimalist
               </Link>
-            </ListItem>
+            </ListItem> */}
           </ul>
           <button
             onClick={() => setIsOpen(!isOpen)}

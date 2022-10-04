@@ -6,7 +6,6 @@ export const Link = ({
   classNames = '',
   activeClassName = '',
   href = '#',
-  c,
   isActive = false,
   onClick = (e) => {},
 }) => {
