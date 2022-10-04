@@ -10,21 +10,28 @@ const ARTICLES = [
   {
     title: 'CEOP',
     text: null,
+    desc: {
+      title: '¿Qué es CEOP?',
+      text: 'Es un diagnóstico predictivo en electrónica (un análisis de sangre de la instalación eléctrica) que nos permite conocer los eventos que están afectando la maquina y predecir desgaste potenciales y fallas.',
+    },
     image: '/images/IMG_7856.jfif',
     sections: [
       {
-        title: '¿Qué es CEOP?',
-        text: 'Calidad de Energía Orientada a proceso es un sistema único desarrollado por nosotros, donde medimos los parámetros de CE de norma internacional y el resto de perturbaciones que no está en la norma pero que afectan los equipos electrónicos.Por eso depende de qué máquina y que aplicación es el enfoque que vamos a usar.',
+        title: '¿Dónde se realiza?',
+        text: 'La medición se realiza en el tablero de la máquina a proteger, en donde medimos detalladamente todos los parámetros de calidad de energía con la profundidad necesaria para definir que eventos afectan o no a la electrónica y a los componentes de este punto. Para ello utilizamos normas Internacionales y contemplamos el resto de perturbaciones que no está en la norma pero que afectan los equipos electrónicos (según fabricantes y 40 años haciendo Calidad de Energía), es por eso depende de qué máquina y qué aplicación es el enfoque que vamos a usar.',
       },
       {
-        title: '¿Pasos, como lo aplica?',
-        text: 'Medimos en la máquina, nos juntamos en una reunión y armamos un plan en etapa de mejora continua ',
+        title: '¿Cómo lo implementamos?',
+        text: 'En 3 sencillos pasos lo implementamos: Medimos en la máquina, nos juntamos en una reunión explicando cada punto observado y armamos un plan en etapas de mejora continua. El resultado nunca más roturas.',
       },
     ],
   },
   {
     title: 'Sinetamer',
-    text: null,
+    desc: {
+      title: null,
+      text: null,
+    },
     image: '/images/IMG_7861.jfif',
     sections: [
       {
@@ -53,12 +60,15 @@ const ARTICLES = [
     ],
   },
 
-  {
-    title: 'SCHNEIDER ECOXPERT',
-    text: 'Brindamos soluciones para eficiencia energética y calidad de energía con un equipo de expertos único en Latam.',
-    image: '/images/IMG_7867.jfif',
-    sections: null,
-  },
+  // {
+  //   title: 'SCHNEIDER ECOXPERT',
+  //   desc: {
+  //     title: null,
+  //     text: 'Brindamos soluciones para eficiencia energética y calidad de energía con un equipo de expertos único en Latam.',
+  //   },
+  //   image: '/images/IMG_7867.jfif',
+  //   sections: null,
+  // },
   {
     title: 'LAS MARCAS LÍDERES EN SOLUCIONES DE CE',
     text: 'Desde baterías, UPS, filtro de flickr, filtros de línea, bobinas de impedancia, filtros de flicker, hasta filtros para desbalance y compensadores de estado sonido líderes a nivel mundial para brindar soluciones a TODOS los eventos de energía.',
@@ -135,6 +145,14 @@ export default function Home() {
           >
             <Title>{element.title}</Title>
             {element.text && <P>{element.text}</P>}
+            {element.desc && (
+              <Section>
+                {element.desc.title && (
+                  <Subtitle>{element.desc.title}</Subtitle>
+                )}
+                {element.desc.text && <P>{element.desc.text}</P>}
+              </Section>
+            )}
             {element.image && (
               <Image
                 width={375}
